@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <!-- Main page settings and mobile viewport -->
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#080808">
+
+  <!-- Page title shown in the browser tab -->
+
+  <title>FIGHTER | Martial Arts</title>
+
+  <style>
+
+    /* =========================================
+
+       1. Site colors and global settings
+
+       ========================================= */
+
+    :root {
+
+      --black: #080808;
+
+      --panel: #111111;
+
+      --gold: #d4af67;
+
+      --muted: #bdbdbd;
+
+    }
+
+    * {
+
+      margin: 0;
+
+      padding: 0;
+
+      box-sizing: border-box;
+
+    }
+
+    html {
+
+      scroll-behavior: smooth;
+
+    }
+
+    body {
+
+      background: var(--black);
+
+      color: white;
+
+      font-family: Arial, sans-serif;
+
+    }
+
+    a {
+
+      text-decoration: none;
+
+    }
+
+    /* =========================================
+
+       2. Main navigation
+
+       There is no Home link.
+
+       The FIGHTER logo links to the home page.
+
+       ========================================= */
+
+    nav {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 20px;
+
+      padding: 22px 6%;
+
+      border-bottom: 1px solid #29251c;
+
+      background: var(--black);
+
+      position: relative;
+
+      z-index: 10;
+
+    }
+
+    /* Clickable logo */
+
+    .logo {
+
+      color: var(--gold);
+
+      font-size: 22px;
+
+      font-weight: bold;
+
+      letter-spacing: 3px;
+
+      white-space: nowrap;
+
+    }
+
+    .logo:hover {
+
+      color: white;
+
+    }
+
+    /* Main navigation links */
+
+    .nav-links {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: flex-end;
+
+      flex-wrap: wrap;
+
+      gap: 18px;
+
+    }
+
+    .nav-links a {
+
+      color: #ddd;
+
+      font-size: 13px;
+
+      transition: color 0.3s;
+
+    }
+
+    .nav-links a:hover {
+
+      color: var(--gold);
+
+    }
+
+    /* Language selector */
+
+    #language-selector {
+
+      background: #151515;
+
+      color: var(--gold);
+
+      border: 1px solid #5c4a19;
+
+      padding: 8px;
+
+      border-radius: 4px;
+
+      cursor: pointer;
+
+    }
+
+    /* =========================================
+
+       3. Hero section and main background image
+
+       ========================================= */
+
+    .hero {
+
+      min-height: 78vh;
+
+      display: flex;
+
+      align-items: center;
+
+      padding: 75px 10%;
+
+      position: relative;
+
+      overflow: hidden;
+
+      /* Background image with a dark overlay to improve text readability */
+
+      background:
+
+        linear-gradient(
+
+          90deg,
+
+          rgba(8, 8, 8, 1) 0%,
+
+          rgba(8, 8, 8, 0.92) 40%,
+
+          rgba(8, 8, 8, 0.25) 100%
+
+        ),
+
+        url("https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1800&q=85")
+
+        center 35% / cover no-repeat;
+
+    }
+
+    .content {
+
+      max-width: 750px;
+
+      position: relative;
+
+      z-index: 1;
+
+    }
+
+    /* Short eyebrow text above the heading */
+
+    .eyebrow {
+
+      color: var(--gold);
+
+      letter-spacing: 4px;
+
+      font-size: 12px;
+
+      line-height: 1.8;
+
+      margin-bottom: 22px;
+
+    }
+
+    /* Main page heading */
+
+    h1 {
+
+      font-size: clamp(42px, 7vw, 84px);
+
+      line-height: 1.08;
+
+      text-transform: uppercase;
+
+      margin-bottom: 25px;
+
+      text-shadow: 2px 3px 12px rgba(0, 0, 0, 0.8);
+
+    }
+
+    /* Gold color for highlighted text */
+
+    h1 span,
+
+    .section-heading h2 span {
+
+      color: var(--gold);
+
+    }
+
+    /* Description below the heading */
+
+    .description {
+
+      color: var(--muted);
+
+      line-height: 1.8;
+
+      font-size: 17px;
+
+      max-width: 540px;
+
+      margin-bottom: 30px;
+
+    }
+
+    /* =========================================
+
+       4. General button styles
+
+       ========================================= */
+
+    .button {
+
+      display: inline-block;
+
+      padding: 14px 24px;
+
+      background: var(--gold);
+
+      color: var(--black);
+
+      font-weight: bold;
+
+      font-size: 12px;
+
+      letter-spacing: 1px;
+
+      margin: 5px 8px 5px 0;
+
+      transition: 0.3s;
+
+    }
+
+    .button:hover {
+
+      background: white;
+
+      transform: translateY(-3px);
+
+    }
+
+    /* Button with a transparent background */
+
+    .button.outline {
+
+      background: transparent;
+
+      color: var(--gold);
+
+      border: 1px solid var(--gold);
+
+    }
+
+    .button.outline:hover {
+
+      background: var(--gold);
+
+      color: var(--black);
+
+    }
+
+    /* =========================================
+
+       5. Academy course preview on the home page
+
+       Full course details are available in academy.html.
+
+       ========================================= */
+
+    .academy-preview {
+
+      padding: 85px 8%;
+
+      background: #0d0d0d;
+
+    }
+
+    .section-heading {
+
+      text-align: center;
+
+      max-width: 750px;
+
+      margin: 0 auto 45px;
+
+    }
+
+    .section-heading h2 {
+
+      font-size: clamp(32px, 5vw, 48px);
+
+      text-transform: uppercase;
+
+      margin: 12px 0 18px;
+
+    }
+
+    .section-description {
+
+      color: #aaa;
+
+      line-height: 1.8;
+
+      font-size: 15px;
+
+    }
+
+    /* Course card layout */
+
+    .course-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      gap: 22px;
+
+      max-width: 1050px;
+
+      margin: 0 auto;
+
+    }
+
+    /* Course card appearance */
+
+    .course-card {
+
+      background: var(--panel);
+
+      border: 1px solid #38301f;
+
+      padding: 30px;
+
+      transition: transform 0.3s, border-color 0.3s;
+
+    }
+
+    .course-card:hover {
+
+      transform: translateY(-5px);
+
+      border-color: var(--gold);
+
+    }
+
+    .course-card h3 {
+
+      color: var(--gold);
+
+      font-size: 21px;
+
+      margin-bottom: 14px;
+
+    }
+
+    .course-card p {
+
+      color: #bbb;
+
+      line-height: 1.8;
+
+      font-size: 14px;
+
+      margin-bottom: 20px;
+
+    }
+
+    /* Link to course details */
+
+    .course-link {
+
+      display: inline-block;
+
+      color: var(--gold);
+
+      border-bottom: 1px solid var(--gold);
+
+      padding-bottom: 5px;
+
+      font-size: 12px;
+
+      letter-spacing: 1px;
+
+    }
+
+    .course-link:hover {
+
+      color: white;
+
+      border-color: white;
+
+    }
+
+    /* =========================================
+
+       6. Call-to-action section for contacting the instructor
+
+       ========================================= */
+
+    .contact-banner {
+
+      text-align: center;
+
+      padding: 65px 8%;
+
+      background: #111;
+
+      border-top: 1px solid #29251c;
+
+      border-bottom: 1px solid #29251c;
+
+    }
+
+    .contact-banner h2 {
+
+      color: var(--gold);
+
+      font-size: clamp(26px, 4vw, 38px);
+
+      margin-bottom: 16px;
+
+    }
+
+    .contact-banner p {
+
+      color: #bbb;
+
+      line-height: 1.8;
+
+      max-width: 650px;
+
+      margin: 0 auto 25px;
+
+    }
+
+    /* =========================================
+
+       7. Footer
+
+       ========================================= */
+
+    footer {
+
+      padding: 25px 15px;
+
+      text-align: center;
+
+      color: #777;
+
+      border-top: 1px solid #29251c;
+
+      font-size: 11px;
+
+      line-height: 1.8;
+
+      letter-spacing: 2px;
+
+    }
+
+    /* =========================================
+
+       8. Tablet and mobile layout
+
+       ========================================= */
+
+    @media (max-width: 900px) {
+
+      nav {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+      }
+
+      .nav-links {
+
+        justify-content: flex-start;
+
+      }
+
+      .hero {
+
+        min-height: 70vh;
+
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .hero {
+
+        padding: 60px 7%;
+
+      }
+
+      .academy-preview {
+
+        padding: 65px 7%;
+
+      }
+
+      .course-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+      .nav-links {
+
+        gap: 14px;
+
+      }
+
+      .nav-links a {
+
+        font-size: 12px;
+
+      }
+
+      .logo {
+
+        font-size: 19px;
+
+      }
+
+      .contact-banner {
+
+        padding: 55px 7%;
+
+      }
+
+    }
+
+    /* =========================================
+
+       9. Respect reduced-motion preferences
+
+       ========================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+
+        scroll-behavior: auto;
+
+      }
+
+      *,
+
+      *::before,
+
+      *::after {
+
+        transition-duration: 0.01ms !important;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- =======================================
+
+       Section A: Main navigation
+
+       There is no Home link; the logo serves as the home link.
+
+       ======================================= -->
+
+  <nav aria-label="Main navigation">
+
+    <!-- Clicking the logo takes the user to the home page -->
+
+    <a class="logo" href="index.html" aria-label="FIGHTER - Home">
+
+      FIGHTER
+
+    </a>
+
+<div class="nav-links">
+
+  <!-- Link to the academy courses page -->
+
+  <a href="academy.html" data-i18n="academy">ACADEMY</a>
+
+  <!-- Link to the Kyokushin history page -->
+
+  <a href="kyokushin.html" data-i18n="kyokushin">KYOKUSHIN</a>
+
+  <!-- Link to the instructor page -->
+
+  <a href="sensei.html" data-i18n="sensei">OUR SENSEI</a>
+
+  <!-- Link to the fighters page -->
+
+  <a href="fighters.html" data-i18n="fighters">OUR FIGHTERS</a>
+
+  <!-- Link to the gallery -->
+
+  <a href="gallery.html" data-i18n="gallery">GALLERY</a>
+
+  <!-- Link to the news page -->
+
+  <a href="news.html" data-i18n="news">NEWS</a>
+
+  <!-- Link to the contact page -->
+
+  <a href="contact.html" data-i18n="contact">CONTACT</a>
+
+  <!-- Website language selector -->
+
+  <select id="language-selector" aria-label="Choose language">
+
+    <option value="en">English</option>
+
+    <option value="de">Deutsch</option>
+
+    <option value="sv">Svenska</option>
+
+    <option value="nl">Nederlands</option>
+
+    <option value="ja">日本語</option>
+
+  </select>
+
+</div>
+
+  </nav>
+
+  <!-- =======================================
+
+       Section B: Hero
+
+       Short introduction and main website image
+
+       ======================================= -->
+
+  <main class="hero" id="home">
+
+    <div class="content">
+
+      <p class="eyebrow" data-i18n="heroEyebrow">
+
+        DISCIPLINE · POWER · HONOR
+
+      </p>
+
+      <h1 data-i18n="heroTitle">
+
+        Born to<br>
+
+        <span>Fight.</span><br>
+
+        Trained to Win.
+
+      </h1>
+
+      <p class="description" data-i18n="heroDescription">
+
+        Welcome to my world of martial arts. Explore my journey,
+
+        discover my fighting style, and train with purpose.
+
+      </p>
+
+      <!-- Go directly to the academy page -->
+
+      <a class="button" href="academy.html" data-i18n="exploreTraining">
+
+        EXPLORE TRAINING
+
+      </a>
+
+      <!-- Go to the instructor page -->
+
+      <a class="button outline" href="sensei.html" data-i18n="meetSensei">
+
+        MEET OUR SENSEI
+
+      </a>
+
+    </div>
+
+  </main>
+
+  <!-- =======================================
+
+       Section D: Contact call-to-action
+
+       The contact form is on contact.html.
+
+       ======================================= -->
+
+  <section class="contact-banner">
+
+    <h2 data-i18n="contactBannerTitle">
+
+      READY TO BEGIN?
+
+    </h2>
+
+    <p data-i18n="contactBannerDescription">
+
+      Contact us to learn more about training options, schedules, and course availability.
+
+    </p>
+
+    <a class="button" href="contact.html" data-i18n="contactUs">
+
+      CONTACT US
+
+    </a>
+
+  </section>
+
+  <!-- =======================================
+
+       Section E: Footer
+
+       ======================================= -->
+
+  <footer data-i18n="footerText">
+
+    KYOKUSHIN KARATE · STRENGTH · DISCIPLINE · RESPECT
+
+  </footer>
+
+  <!-- Load the multilingual translations file -->
+
+  <script src="js/translations.js"></script>
+
+</body>
+
+</html>

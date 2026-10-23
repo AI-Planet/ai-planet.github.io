@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Sensei | Kyokushin Karate</title>
+
+    <style>
+        /* General page settings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #080808;
+            color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        /* Header: back-to-home link on the left and language selector on the right */
+        header {
+            padding: 22px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: nowrap;
+            border-bottom: 1px solid #b89646;
+        }
+
+        .back-home {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .nav-links a {
+            color: #eee;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .back-home:hover {
+            color: #d4af37;
+        }
+
+        #language-selector {
+            background: #151515;
+            color: #d4af37;
+            border: 1px solid #b89646;
+            padding: 9px;
+            border-radius: 4px;
+        }
+
+        /* Page introduction section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #191919, #080808);
+        }
+
+        .hero .eyebrow {
+            color: #b89646;
+            letter-spacing: 3px;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            color: #d4af37;
+            font-size: clamp(36px, 6vw, 60px);
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: #ccc;
+            font-size: 18px;
+        }
+
+        /* Main content area */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 50px 25px;
+        }
+
+        /* Instructor profile and details */
+        .profile {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .photo {
+            min-height: 350px;
+            border: 2px solid #b89646;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #d4af37;
+            background: #151515;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #d4af37;
+            margin-bottom: 20px;
+            font-size: 30px;
+        }
+
+        .profile p {
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+        .profile strong {
+            color: #d4af37;
+        }
+
+        /* Section headings */
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Experience and achievement cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #151515;
+            border: 1px solid #383020;
+            padding: 25px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .card h3 {
+            color: #d4af37;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #bbb;
+        }
+
+        /* Placeholder for instructor photos and videos */
+        .media-note {
+            text-align: center;
+            color: #bbb;
+            background: #151515;
+            padding: 30px;
+            border: 1px dashed #b89646;
+        }
+
+        /* Page footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid #b89646;
+            color: #888;
+        }
+
+        /* Responsive layout for smaller screens */
+        @media (max-width: 900px) {
+            header {
+                justify-content: center;
+            }
+
+            .nav-links {
+                order: 3;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .profile {
+                grid-template-columns: 1fr;
+            }
+
+            .photo {
+                min-height: 250px;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Simple header for internal pages -->
+    <header>
+        <!-- Link back to the home page -->
+        <a href="index.html" class="back-home" data-i18n="backHome">← BACK TO HOME</a>
+
+        <!-- Website language selector -->
+        <select id="language-selector" aria-label="Select language">
+            <option value="en">English</option>
+            <option value="de">Deutsch</option>
+            <option value="sv">Svenska</option>
+            <option value="nl">Nederlands</option>
+            <option value="ja">日本語</option>
+        </select>
+    </header>
+
+    <!-- Instructor introduction -->
+    <section class="hero">
+        <p class="eyebrow" data-i18n="senseiEyebrow">MEET YOUR INSTRUCTOR</p>
+        <h1 data-i18n="senseiHeroTitle">OUR SENSEI</h1>
+        <p data-i18n="senseiHeroSubtitle">Discipline · Respect · Strength · Humility</p>
+    </section>
+
+    <!-- Instructor's main photo and information -->
+    <section class="container profile">
+        <div class="photo">
+            <span data-i18n="senseiPhotoPlaceholder">
+                SENSEI PHOTO<br>
+                Replace this area with a real photograph
+            </span>
+        </div>
+
+        <div>
+            <h2 data-i18n="senseiMeetTitle">Meet Our Sensei</h2>
+
+            <p data-i18n="senseiIntro1">
+                Welcome to our dojo. Our Sensei is dedicated to teaching
+                Kyokushin Karate through discipline, perseverance, respect,
+                and continuous improvement.
+            </p>
+
+            <p data-i18n="senseiIntro2">
+                Training is about more than physical strength. It develops
+                confidence, self-control, resilience, and respect for others.
+            </p>
+
+            <p>
+                <strong data-i18n="senseiNameLabel">Name:</strong>
+                <span data-i18n="senseiNamePlaceholder">Add Sensei's name</span>
+                <br>
+
+                <strong data-i18n="senseiRankLabel">Rank:</strong>
+                <span data-i18n="senseiRankPlaceholder">Add Dan grade</span>
+                <br>
+
+                <strong data-i18n="senseiExperienceLabel">Experience:</strong>
+                <span data-i18n="senseiExperiencePlaceholder">Add years of experience</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Instructor's experience and achievements -->
+    <section class="container">
+        <h2 class="section-title" data-i18n="senseiAchievementsTitle">
+            ACHIEVEMENTS &amp; EXPERIENCE
+        </h2>
+
+        <div class="cards">
+            <div class="card">
+                <h3 data-i18n="senseiChampionshipsTitle">Championships</h3>
+                <p data-i18n="senseiChampionshipsText">
+                    Add tournament participation and results.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3 data-i18n="senseiAwardsTitle">Ranks &amp; Awards</h3>
+                <p data-i18n="senseiAwardsText">
+                    Add verified Dan grades, certificates, and awards.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3 data-i18n="senseiTeachingTitle">Teaching Journey</h3>
+                <p data-i18n="senseiTeachingText">
+                    Add teaching history and martial arts experience.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructor photos and videos -->
+    <section class="container">
+        <h2 class="section-title" data-i18n="senseiMediaTitle">
+            SENSEI IN ACTION
+        </h2>
+
+        <div class="media-note" data-i18n="senseiMediaNote">
+            Photos and training videos will be added here.
+        </div>
+    </section>
+
+    <!-- Website footer -->
+    <footer data-i18n="footerText">
+        MARTIAL ARTS · STRENGTH · DISCIPLINE
+    </footer>
+
+    <!-- Load the shared website translations -->
+    <script src="js/translations.js"></script>
+</body>
+</html>

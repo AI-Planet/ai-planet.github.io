@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>News & Events | FIGHTER</title>
+
+    <style>
+
+        /* Global page settings */
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+        :root {
+
+            --gold: #d4af37;
+
+            --black: #080808;
+
+            --panel: #151515;
+
+            --text: #f5f5f5;
+
+            --muted: #b5b5b5;
+
+        }
+
+        body {
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: var(--black);
+
+            color: var(--text);
+
+            line-height: 1.7;
+
+        }
+
+        a {
+
+            color: inherit;
+
+            text-decoration: none;
+
+        }
+
+        /* Website header and navigation */
+
+        /* Header: back-to-home link on the left and language selector on the right */
+
+        header {
+
+            padding: 22px 5%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+            flex-wrap: nowrap;
+
+            border-bottom: 1px solid #b89646;
+
+        }
+
+        .back-home {
+
+            margin-right: auto;
+
+        }
+
+        #language-selector {
+
+            margin-left: auto;
+
+        }
+
+        nav {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 24px;
+
+            flex-wrap: wrap;
+
+        }
+
+        .back-home {
+
+            color: var(--gold);
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            white-space: nowrap;
+
+        }
+
+        .back-home:hover {
+
+            color: white;
+
+        }
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+
+        }
+
+        .nav-links a {
+
+            color: #ddd;
+
+            font-size: 13px;
+
+            transition: color .2s;
+
+        }
+
+        .nav-links a:hover,
+
+        .nav-links a.active {
+
+            color: var(--gold);
+
+        }
+
+        #language-selector {
+
+            background: #171717;
+
+            color: white;
+
+            border: 1px solid #555;
+
+            padding: 8px;
+
+            border-radius: 4px;
+
+        }
+
+        /* Main news banner */
+
+        .hero {
+
+            text-align: center;
+
+            padding: 95px 20px 80px;
+
+            background:
+
+                linear-gradient(rgba(0,0,0,.78), rgba(0,0,0,.93)),
+
+                url("https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1800&q=80")
+
+                center/cover;
+
+            border-bottom: 1px solid #292929;
+
+        }
+
+        .eyebrow {
+
+            color: var(--gold);
+
+            letter-spacing: 4px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            text-transform: uppercase;
+
+        }
+
+        h1 {
+
+            font-size: clamp(38px, 6vw, 66px);
+
+            line-height: 1.15;
+
+            margin: 18px 0;
+
+        }
+
+        h1 span,
+
+        h2 span {
+
+            color: var(--gold);
+
+        }
+
+        .hero p {
+
+            max-width: 720px;
+
+            margin: 0 auto;
+
+            color: #ddd;
+
+        }
+
+        /* News section layout */
+
+        .section {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 70px 24px;
+
+        }
+
+        .section-heading {
+
+            margin-bottom: 32px;
+
+        }
+
+        .section-heading h2 {
+
+            font-size: clamp(27px, 4vw, 40px);
+
+            margin-top: 8px;
+
+        }
+
+        .section-heading p {
+
+            color: var(--muted);
+
+            margin-top: 8px;
+
+        }
+
+        /* News cards */
+
+        .news-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+
+            gap: 22px;
+
+        }
+
+        .news-card {
+
+            background: var(--panel);
+
+            border: 1px solid #303030;
+
+            border-radius: 7px;
+
+            overflow: hidden;
+
+            display: flex;
+
+            flex-direction: column;
+
+        }
+
+        .news-card img {
+
+            width: 100%;
+
+            height: 210px;
+
+            object-fit: cover;
+
+            display: block;
+
+        }
+
+        .news-content {
+
+            padding: 23px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: flex-start;
+
+            flex: 1;
+
+        }
+
+        .category {
+
+            color: var(--gold);
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+        }
+
+        .news-content h3 {
+
+            font-size: 21px;
+
+            line-height: 1.4;
+
+            margin: 12px 0;
+
+        }
+
+        .news-content p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            margin-bottom: 20px;
+
+        }
+
+        .sample-label {
+
+            display: inline-block;
+
+            border: 1px solid #705d24;
+
+            color: #e5c65e;
+
+            padding: 4px 8px;
+
+            border-radius: 3px;
+
+            font-size: 11px;
+
+            margin-bottom: 12px;
+
+        }
+
+        .news-link {
+
+            color: var(--gold);
+
+            font-weight: bold;
+
+            font-size: 13px;
+
+            margin-top: auto;
+
+        }
+
+        /* Dojo announcements section */
+
+        .announcements {
+
+            background: #111;
+
+            border-top: 1px solid #292929;
+
+            border-bottom: 1px solid #292929;
+
+        }
+
+        .announcement-list {
+
+            display: grid;
+
+            gap: 16px;
+
+        }
+
+        .announcement {
+
+            background: #191919;
+
+            border-left: 3px solid var(--gold);
+
+            border-radius: 4px;
+
+            padding: 22px 25px;
+
+        }
+
+        .announcement h3 {
+
+            margin-bottom: 7px;
+
+            font-size: 19px;
+
+        }
+
+        .announcement p {
+
+            color: var(--muted);
+
+        }
+
+        .announcement-date {
+
+            color: var(--gold);
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+        }
+
+        /* Contact call to action */
+
+        .contact-banner {
+
+            text-align: center;
+
+            background: #17140a;
+
+            border: 1px solid #51431a;
+
+            border-radius: 8px;
+
+            padding: 38px 25px;
+
+        }
+
+        .contact-banner h2 {
+
+            font-size: 30px;
+
+            margin-bottom: 12px;
+
+        }
+
+        .contact-banner p {
+
+            color: #ccc;
+
+            margin-bottom: 22px;
+
+        }
+
+        .gold-button {
+
+            display: inline-block;
+
+            background: var(--gold);
+
+            color: #080808;
+
+            font-weight: bold;
+
+            padding: 12px 24px;
+
+            border-radius: 4px;
+
+        }
+
+        /* Footer */
+
+        footer {
+
+            padding: 25px;
+
+            text-align: center;
+
+            color: #888;
+
+            border-top: 1px solid #292929;
+
+            font-size: 13px;
+
+        }
+
+        /* Mobile layout adjustments */
+
+        @media (max-width: 900px) {
+
+            .news-grid {
+
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            }
+
+        }
+
+        @media (max-width: 650px) {
+
+            nav {
+
+                justify-content: center;
+
+            }
+
+            .nav-links {
+
+                justify-content: center;
+
+            }
+
+            .news-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .hero {
+
+                padding: 70px 20px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Simple news page header -->
+
+    <header>
+
+        <!-- Back to the home page -->
+
+        <a href="index.html" class="back-home" data-i18n="backHome">← BACK TO HOME</a>
+
+        <!-- Language selector -->
+
+        <select id="language-selector" aria-label="Select language">
+
+            <option value="en">English</option>
+
+            <option value="de">Deutsch</option>
+
+            <option value="sv">Svenska</option>
+
+            <option value="nl">Nederlands</option>
+
+            <option value="ja">日本語</option>
+
+        </select>
+
+    </header>
+
+    <!-- News section introduction -->
+
+    <section class="hero">
+
+        <div class="eyebrow" data-i18n="newsEyebrow">THE WORLD OF KYOKUSHIN</div>
+
+        <h1 data-i18n="newsPageTitle">
+
+            News &amp; <span>Events</span>
+
+        </h1>
+
+        <p data-i18n="newsPageDescription">
+
+            Follow international Kyokushin Karate news, tournaments, seminars
+
+            and important announcements from our dojo.
+
+        </p>
+
+    </section>
+
+    <main>
+
+        <!-- International news and events -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <div class="eyebrow" data-i18n="internationalNews">INTERNATIONAL NEWS</div>
+
+                <h2 data-i18n="latestNewsTitle">Latest <span>News</span></h2>
+
+                <p data-i18n="latestNewsDescription">
+
+                    Updates about tournaments, seminars and the international Kyokushin community.
+
+                </p>
+
+            </div>
+
+            <!-- These cards are examples and do not represent real news -->
+
+            <div class="news-grid">
+
+                <article class="news-card">
+
+                    <img
+
+                        src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=900&q=80"
+
+                        alt="Martial arts training">
+
+                    <div class="news-content">
+
+                        <span class="category" data-i18n="tournamentsCategory">TOURNAMENTS</span>
+
+                        <span class="sample-label" data-i18n="sampleContent">SAMPLE CONTENT</span>
+
+                        <h3 data-i18n="newsSampleTitle1">International Tournament Updates</h3>
+
+                        <p data-i18n="newsSampleDescription1">
+
+                            This is a placeholder for verified news about upcoming
+
+                            international Kyokushin tournaments.
+
+                        </p>
+
+                        <a class="news-link" href="contact.html" data-i18n="newsMoreInfo">
+
+                            More information →
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+                <article class="news-card">
+
+                    <img
+
+                        src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=900&q=80"
+
+                        alt="Athletes training">
+
+                    <div class="news-content">
+
+                        <span class="category" data-i18n="seminarsCategory">SEMINARS</span>
+
+                        <span class="sample-label" data-i18n="sampleContent">SAMPLE CONTENT</span>
+
+                        <h3 data-i18n="newsSampleTitle2">Seminars and Training Camps</h3>
+
+                        <p data-i18n="newsSampleDescription2">
+
+                            This space can feature confirmed information about
+
+                            seminars, training camps and guest instructors.
+
+                        </p>
+
+                        <a class="news-link" href="contact.html" data-i18n="newsMoreInfo">
+
+                            More information →
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+                <article class="news-card">
+
+                    <img
+
+                        src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80"
+
+                        alt="Athlete preparing for training">
+
+                    <div class="news-content">
+
+                        <span class="category" data-i18n="karateCommunity">COMMUNITY</span>
+
+                        <span class="sample-label" data-i18n="sampleContent">SAMPLE CONTENT</span>
+
+                        <h3 data-i18n="newsSampleTitle3">Stories from the Kyokushin Community</h3>
+
+                        <p data-i18n="newsSampleDescription3">
+
+                            A place for verified stories about clubs, practitioners
+
+                            and developments in Kyokushin Karate.
+
+                        </p>
+
+                        <a class="news-link" href="contact.html" data-i18n="newsMoreInfo">
+
+                            More information →
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- Announcements for our dojo -->
+
+        <section class="announcements">
+
+            <div class="section">
+
+                <div class="section-heading">
+
+                    <div class="eyebrow" data-i18n="dojoUpdates">DOJO UPDATES</div>
+
+                    <h2 data-i18n="announcementsTitle">Club <span>Announcements</span></h2>
+
+                    <p data-i18n="announcementsDescription">
+
+                        Check here for class cancellations, schedule changes and special events.
+
+                    </p>
+
+                </div>
+
+                <div class="announcement-list">
+
+                    <article class="announcement">
+
+                        <div class="announcement-date" data-i18n="announcementPlaceholderDate">
+
+                            DATE TO BE ADDED
+
+                        </div>
+
+                        <h3 data-i18n="scheduleNoticeTitle">Training Schedule Updates</h3>
+
+                        <p data-i18n="scheduleNoticeDescription">
+
+                            Official class times and any schedule changes will be announced here.
+
+                        </p>
+
+                    </article>
+
+                    <article class="announcement">
+
+                        <div class="announcement-date" data-i18n="announcementPlaceholderDate">
+
+                            DATE TO BE ADDED
+
+                        </div>
+
+                        <h3 data-i18n="closureNoticeTitle">Dojo Closures and Holidays</h3>
+
+                        <p data-i18n="closureNoticeDescription">
+
+                            Holiday closures and unexpected cancellations will be published here.
+
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Contact the instructor for more information -->
+
+        <section class="section">
+
+            <div class="contact-banner">
+
+                <h2 data-i18n="newsContactTitle">
+
+                    Have a <span>Question?</span>
+
+                </h2>
+
+                <p data-i18n="newsContactDescription">
+
+                    Contact the instructor if you need information about an event or training session.
+
+                </p>
+
+                <a href="contact.html" class="gold-button" data-i18n="contactInstructor">
+
+                    CONTACT THE INSTRUCTOR
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p data-i18n="footerText">
+
+            © FIGHTER — Kyokushin Karate. Discipline. Power. Respect.
+
+        </p>
+
+    </footer>
+
+    <!-- Load the shared website translations -->
+
+    <script src="js/translations.js"></script>
+
+</body>
+
+</html>

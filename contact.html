@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Kyokushin Karate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #080808;
+            color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        /* Header with the back-to-home link on the left */
+        header {
+            padding: 25px 8%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 15px;
+            border-bottom: 1px solid #b89646;
+        }
+
+        .back-home {
+            margin-right: auto;
+        }
+
+        .logo {
+            color: #d4af37;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        header a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 75px 20px;
+            background: linear-gradient(180deg, #202020, #080808);
+        }
+
+        .hero h1 {
+            color: #d4af37;
+            font-size: clamp(38px, 6vw, 60px);
+        }
+
+        .hero p {
+            color: #bbb;
+            margin-top: 12px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 45px 25px;
+        }
+
+        h2 {
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        .columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .panel {
+            background: #151515;
+            border: 1px solid #493b20;
+            border-radius: 8px;
+            padding: 25px;
+        }
+
+        .info {
+            margin-bottom: 22px;
+        }
+
+        .info h3 {
+            color: #d4af37;
+            margin-bottom: 5px;
+        }
+
+        .info p {
+            color: #ccc;
+        }
+
+        .notice {
+            color: #d4af37;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            color: #ddd;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            background: #080808;
+            color: #fff;
+            border: 1px solid #655127;
+            border-radius: 4px;
+            font: inherit;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        button {
+            background: #d4af37;
+            color: #080808;
+            padding: 13px;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #f0d477;
+        }
+
+        .map-placeholder {
+            min-height: 250px;
+            background: #151515;
+            border: 1px dashed #b89646;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #d4af37;
+            padding: 25px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid #b89646;
+            color: #888;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Simple header with a link back to the home page -->
+    <header>
+        <a href="index.html" class="back-home">← BACK TO HOME</a>
+    </header>
+
+    <section class="hero">
+        <h1>CONTACT US</h1>
+        <p>Take the first step on your Kyokushin journey.</p>
+    </section>
+
+    <section class="container">
+        <div class="columns">
+            <div class="panel">
+                <h2>DOJO INFORMATION</h2>
+
+                <div class="info">
+                    <h3>📍 Address</h3>
+                    <p>Dojo address to be announced</p>
+                    <p class="notice">Temporary placeholder — not a real address.</p>
+                </div>
+
+                <div class="info">
+                    <h3>🕒 Training Hours</h3>
+                    <p>Monday: 18:00–20:00</p>
+                    <p>Wednesday: 18:00–20:00</p>
+                    <p>Friday: 18:00–20:00</p>
+                    <p class="notice">Example schedule only — please confirm before publishing.</p>
+                </div>
+
+                <div class="info">
+                    <h3>✉️ Email</h3>
+                    <p>mmm@gmail.com</p>
+                    <p class="notice">Replace with the official dojo email if needed.</p>
+                </div>
+
+                <div class="info">
+                    <h3>📞 Phone</h3>
+                    <p>Phone number to be announced</p>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>SEND US A MESSAGE</h2>
+
+                <form action="mailto:mmm@gmail.com"
+                      method="post"
+                      enctype="text/plain">
+                    <label>
+                        Your Name
+                        <input type="text" name="Name" required>
+                    </label>
+
+                    <label>
+                        Your Email
+                        <input type="email" name="Email" required>
+                    </label>
+
+                    <label>
+                        Subject
+                        <input type="text" name="Subject" required>
+                    </label>
+
+                    <label>
+                        Your Message
+                        <textarea name="Message" required></textarea>
+                    </label>
+
+                    <button type="submit">SEND MESSAGE</button>
+                </form>
+
+                <p class="notice">
+                    This basic form may open your email application.
+                    It does not send messages directly from the website.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2>FIND OUR DOJO</h2>
+
+        <div class="map-placeholder">
+            Google Maps will be added here when the real dojo address is available.
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Kyokushin Karate Dojo
+    </footer>
+</body>
+</html>

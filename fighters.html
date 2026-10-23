@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Fighters | Martial Arts</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #0b0b0b;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      padding: 22px 7%;
+      background: #111;
+      border-bottom: 1px solid #5c4a19;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .logo {
+      color: #d4af37;
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    header a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 45px 25px 70px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #d4af37;
+      font-size: clamp(32px, 5vw, 52px);
+      letter-spacing: 4px;
+    }
+
+    .intro {
+      text-align: center;
+      color: #bbb;
+      margin-bottom: 55px;
+      line-height: 1.7;
+    }
+
+    .belt-group {
+      margin: 50px 0;
+    }
+
+    .belt-title {
+      font-size: 24px;
+      letter-spacing: 3px;
+      padding: 12px 18px;
+      border-left: 5px solid;
+      margin-bottom: 25px;
+    }
+
+    .black-belt { color: #fff; border-color: #d4af37; }
+    .brown-belt { color: #b87945; border-color: #b87945; }
+    .green-belt { color: #52b788; border-color: #52b788; }
+    .blue-belt { color: #5ba7e8; border-color: #5ba7e8; }
+    .orange-belt { color: #f39c45; border-color: #f39c45; }
+    .yellow-belt { color: #f1d45b; border-color: #f1d45b; }
+    .white-belt { color: #eee; border-color: #eee; }
+
+    .belt-rank {
+      color: #bbb;
+      margin: -10px 0 25px;
+    }
+
+    .fighter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .fighter-card {
+      background: #151515;
+      border: 1px solid #383838;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 22px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .fighter-card:hover {
+      transform: translateY(-6px);
+      border-color: #d4af37;
+    }
+
+    .fighter-card img {
+      display: block;
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+
+    .fighter-card h3 {
+      font-size: 20px;
+      margin: 18px 10px 8px;
+    }
+
+    .fighter-card p {
+      color: #bbb;
+      margin: 8px;
+    }
+
+    .fighter-card span {
+      display: inline-block;
+      color: #d4af37;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    footer {
+      padding: 25px;
+      text-align: center;
+      background: #111;
+      color: #d4af37;
+      letter-spacing: 2px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 600px) {
+      .fighter-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="index.html" class="back-home">← BACK TO HOME</a>
+  </header>
+
+  <main>
+    <h1>OUR FIGHTERS</h1>
+
+    <p class="intro">
+      Every belt tells a story.<br>
+      Every fighter earns respect.
+    </p>
+
+    <section class="belt-group">
+      <h2 class="belt-title black-belt">BLACK BELT</h2>
+      <p class="belt-rank">Dan 1 · Dan 2 · Dan 3 · Dan 4+</p>
+
+      <div class="fighter-grid">
+        <article class="fighter-card">
+          <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=500&q=80" alt="Martial artist">
+          <h3>Fighter Name</h3>
+          <p>🇳🇱 Netherlands</p>
+          <span>Black Belt · Dan 2</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="belt-group">
+      <h2 class="belt-title brown-belt">BROWN BELT</h2>
+      <div class="fighter-grid">
+        <article class="fighter-card">
+          <img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=500&q=80" alt="Martial artist">
+          <h3>Fighter Name</h3>
+          <p>🇮🇷 Iran</p>
+          <span>Brown Belt</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="belt-group">
+      <h2 class="belt-title green-belt">GREEN BELT</h2>
+      <div class="fighter-grid">
+        <article class="fighter-card">
+          <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07a?auto=format&fit=crop&w=500&q=80" alt="Martial artist">
+          <h3>Fighter Name</h3>
+          <p>🇳🇱 Netherlands</p>
+          <span>Green Belt</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="belt-group">
+      <h2 class="belt-title blue-belt">BLUE BELT</h2>
+      <div class="fighter-grid"></div>
+    </section>
+
+    <section class="belt-group">
+      <h2 class="belt-title orange-belt">ORANGE BELT</h2>
+      <div class="fighter-grid"></div>
+    </section>
+
+    <section class="belt-group">
+      <h2 class="belt-title yellow-belt">YELLOW BELT</h2>
+      <div class="fighter-grid"></div>
+    </section>
+
+    <section class="belt-group">
+      <h2 class="belt-title white-belt">WHITE BELT</h2>
+      <div class="fighter-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    MARTIAL ARTS · STRENGTH · DISCIPLINE
+  </footer>
+</body>
+</html>

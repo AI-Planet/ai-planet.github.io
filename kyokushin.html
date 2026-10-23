@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Discover Kyokushin Karate, its history, philosophy, founder and traditions.">
+
+  <title>About Kyokushin | FIGHTER</title>
+
+  <style>
+
+    /* General page styles */
+
+    * {
+
+      box-sizing: border-box;
+
+    }
+
+    html {
+
+      scroll-behavior: smooth;
+
+    }
+
+    body {
+
+      margin: 0;
+
+      background: #0b0b0b;
+
+      color: #eee;
+
+      font-family: Arial, sans-serif;
+
+      line-height: 1.8;
+
+    }
+
+    a {
+
+      color: #d4af37;
+
+    }
+
+    /* Header and shared navigation for internal pages */
+
+    header {
+
+      padding: 22px 4%;
+
+      background: #111;
+
+      border-bottom: 1px solid #5c4a19;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 18px;
+
+    }
+
+    .back-home {
+
+      color: #d4af37;
+
+      text-decoration: none;
+
+      font-weight: bold;
+
+      white-space: nowrap;
+
+    }
+
+    .nav-links {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 18px;
+
+    }
+
+    .nav-links a {
+
+      color: #eee;
+
+      text-decoration: none;
+
+      font-size: 14px;
+
+      transition: color 0.2s ease;
+
+    }
+
+    .nav-links a:hover,
+
+    .back-home:hover {
+
+      color: #d4af37;
+
+    }
+
+    #language-selector {
+
+      background: #171717;
+
+      color: #d4af37;
+
+      border: 1px solid #5c4a19;
+
+      padding: 9px;
+
+      border-radius: 4px;
+
+      cursor: pointer;
+
+    }
+
+    /* Hero image and title */
+
+    .hero {
+
+      min-height: 380px;
+
+      padding: 80px 20px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
+
+      background:
+
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.85)),
+
+        url("https\://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1800&q=85")
+
+        center/cover;
+
+    }
+
+    .hero h1 {
+
+      color: #d4af37;
+
+      font-size: clamp(35px, 6vw, 65px);
+
+      letter-spacing: 5px;
+
+      line-height: 1.2;
+
+      margin: 0;
+
+      text-shadow: 0 5px 20px #000;
+
+    }
+
+    .hero p {
+
+      font-size: 18px;
+
+      color: #eee;
+
+    }
+
+    /* Main content */
+
+    main {
+
+      max-width: 1100px;
+
+      margin: auto;
+
+      padding: 45px 24px 70px;
+
+    }
+
+    section.content-section {
+
+      margin-bottom: 55px;
+
+      scroll-margin-top: 25px;
+
+    }
+
+    h2 {
+
+      color: #d4af37;
+
+      font-size: 28px;
+
+      line-height: 1.35;
+
+      margin-top: 0;
+
+      margin-bottom: 18px;
+
+    }
+
+    h3 {
+
+      line-height: 1.4;
+
+    }
+
+    .eyebrow {
+
+      color: #d4af37;
+
+      font-size: 12px;
+
+      font-weight: bold;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+
+    }
+
+    /* Quote and highlighted note section */
+
+    .highlight {
+
+      padding: 25px;
+
+      background: #151515;
+
+      border-left: 4px solid #d4af37;
+
+      margin: 30px 0;
+
+    }
+
+    .highlight strong {
+
+      color: #d4af37;
+
+      font-size: 19px;
+
+    }
+
+    /* Kyokushin philosophy cards */
+
+    .principles {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+      gap: 20px;
+
+      margin-top: 25px;
+
+    }
+
+    .principle {
+
+      background: #151515;
+
+      border: 1px solid #383838;
+
+      border-radius: 8px;
+
+      padding: 22px;
+
+    }
+
+    .principle h3 {
+
+      color: #d4af37;
+
+      margin-top: 0;
+
+    }
+
+    /* Founder and notable figures cards */
+
+    .people-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+      gap: 22px;
+
+      margin-top: 25px;
+
+    }
+
+    .person-card {
+
+      background: #151515;
+
+      border: 1px solid #383838;
+
+      border-radius: 8px;
+
+      padding: 22px;
+
+    }
+
+    .person-card h3 {
+
+      color: #d4af37;
+
+      margin-top: 0;
+
+    }
+
+    .person-label {
+
+      color: #aaa;
+
+      font-size: 13px;
+
+    }
+
+    /* Belt rank display */
+
+    .belts {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-top: 20px;
+
+    }
+
+    .belt {
+
+      padding: 9px 15px;
+
+      border: 1px solid #555;
+
+      border-radius: 5px;
+
+      background: #171717;
+
+    }
+
+    /* Resources and further reading links */
+
+    .resource-list {
+
+      padding-left: 22px;
+
+    }
+
+    .resource-list li {
+
+      margin-bottom: 10px;
+
+    }
+
+    /* Footer */
+
+    footer {
+
+      text-align: center;
+
+      padding: 25px;
+
+      background: #111;
+
+      border-top: 1px solid #383838;
+
+      color: #d4af37;
+
+      font-size: 12px;
+
+      letter-spacing: 2px;
+
+    }
+
+    /* Responsive styles for small screens */
+
+    @media (max-width: 700px) {
+
+      header {
+
+        flex-direction: column;
+
+        align-items: center;
+
+      }
+
+      .nav-links {
+
+        gap: 12px;
+
+      }
+
+      .hero {
+
+        min-height: 300px;
+
+        padding: 60px 18px;
+
+      }
+
+      /* Main heading on the Kyokushin page */
+
+      .hero h1 {
+
+        font-size: clamp(48px, 8vw, 82px);
+
+        letter-spacing: 2px;
+
+        line-height: 1.15;
+
+      }
+
+      main {
+
+        padding: 35px 18px 50px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Simple header for internal pages -->
+
+  <header>
+
+    <!-- Link back to the home page -->
+
+    <a href="index.html" class="back-home" data-i18n="backHome">← BACK TO HOME</a>
+
+    <!-- Website language selector -->
+
+    <select id="language-selector" aria-label="Select language">
+
+      <option value="en">English</option>
+
+      <option value="de">Deutsch</option>
+
+      <option value="sv">Svenska</option>
+
+      <option value="nl">Nederlands</option>
+
+      <option value="ja">日本語</option>
+
+    </select>
+
+  </header>
+
+  <!-- Main introduction section -->
+
+  <section class="hero">
+
+    <div>
+
+      <p class="eyebrow" data-i18n="kyokushinEyebrow">THE WAY OF THE ULTIMATE TRUTH</p>
+
+      <h1 data-i18n="kyokushinHeroTitle">KYOKUSHIN KARATE</h1>
+
+      <p data-i18n="kyokushinHeroSubtitle">Strength · Discipline · Perseverance</p>
+
+    </div>
+
+  </section>
+
+  <main>
+
+    <!-- Introduction to Kyokushin -->
+
+    <section class="content-section">
+
+      <h2 data-i18n="whatIsKyokushinTitle">What Is Kyokushin?</h2>
+
+      <p data-i18n="whatIsKyokushinText">
+
+        Kyokushin is a full-contact style of karate founded by
+
+        Masutatsu Oyama. It is known for demanding training,
+
+        physical conditioning, powerful techniques and the pursuit
+
+        of personal development.
+
+      </p>
+
+      <div class="highlight">
+
+        <strong data-i18n="kyokushinQuote">Keep going, even when the challenge is difficult.</strong>
+
+        <p data-i18n="kyokushinQuoteText">
+
+          Kyokushin training aims to develop not only physical ability,
+
+          but also perseverance, self-control, respect and determination.
+
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- History of Kyokushin -->
+
+    <section class="content-section">
+
+      <h2 data-i18n="kyokushinHistoryTitle">History of Kyokushin</h2>
+
+      <p data-i18n="kyokushinHistoryText">
+
+        Kyokushin was established by Masutatsu Oyama in the 1960s.
+
+        The style became known internationally for its demanding
+
+        training, full-contact fighting and emphasis on mental and
+
+        physical development. Its practitioners have helped spread
+
+        the art across many countries.
+
+      </p>
+
+      <p data-i18n="kyokushinHistoryNote">
+
+        Different organisations have developed within the Kyokushin
+
+        tradition. Their histories, leadership and grading systems
+
+        may differ.
+
+      </p>
+
+    </section>
+
+    <!-- Founder and notable figures -->
+
+    <section class="content-section">
+
+      <h2 data-i18n="kyokushinPeopleTitle">Founder and Notable Figures</h2>
+
+      <div class="people-grid">
+
+        <article class="person-card">
+
+          <h3 data-i18n="oyamaName">Masutatsu Oyama</h3>
+
+          <p class="person-label" data-i18n="oyamaRole">Founder of Kyokushin</p>
+
+          <p data-i18n="oyamaDescription">
+
+            Masutatsu Oyama founded Kyokushin and helped establish
+
+            its reputation for rigorous training and full-contact karate.
+
+          </p>
+
+        </article>
+
+        <article class="person-card">
+
+          <h3 data-i18n="kyokushinLegacyTitle">The Kyokushin Legacy</h3>
+
+          <p data-i18n="kyokushinLegacyText">
+
+            Instructors, competitors and organisations around the world
+
+            have contributed to the development and international reach
+
+            of Kyokushin Karate.
+
+          </p>
+
+        </article>
+
+      </div>
+
+      <p data-i18n="kyokushinPeopleNote">
+
+        Profiles of additional masters and champions can be added here
+
+        after their details and photographs have been verified.
+
+      </p>
+
+    </section>
+
+    <!-- Kyokushin philosophy and values -->
+
+    <section class="content-section">
+
+      <h2 data-i18n="kyokushinPhilosophyTitle">The Philosophy</h2>
+
+      <div class="principles">
+
+        <article class="principle">
+
+          <h3 data-i18n="kyokushinDisciplineTitle">DISCIPLINE</h3>
+
+          <p data-i18n="kyokushinDisciplineText">
+
+            Develop consistent habits and respect for training.
+
+          </p>
+
+        </article>
+
+        <article class="principle">
+
+          <h3 data-i18n="kyokushinPerseveranceTitle">PERSEVERANCE</h3>
+
+          <p data-i18n="kyokushinPerseveranceText">
+
+            Learn to face challenges and keep improving.
+
+          </p>
+
+        </article>
+
+        <article class="principle">
+
+          <h3 data-i18n="kyokushinRespectTitle">RESPECT</h3>
+
+          <p data-i18n="kyokushinRespectText">
+
+            Respect your instructor, training partners and yourself.
+
+          </p>
+
+        </article>
+
+        <article class="principle">
+
+          <h3 data-i18n="kyokushinSelfControlTitle">SELF-CONTROL</h3>
+
+          <p data-i18n="kyokushinSelfControlText">
+
+            Build control, responsibility and awareness.
+
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- Introduction to belt ranks -->
+
+    <section class="content-section">
+
+      <h2 data-i18n="kyokushinBeltsTitle">Belt Ranks</h2>
+
+      <p data-i18n="kyokushinBeltsText">
+
+        Students progress through belt grades as they develop their
+
+        techniques, knowledge and experience. The exact grading
+
+        system depends on the organisation and dojo.
+
+      </p>
+
+      <div class="belts">
+
+        <span class="belt" data-i18n="beltWhite">White</span>
+
+        <span class="belt" data-i18n="beltYellow">Yellow</span>
+
+        <span class="belt" data-i18n="beltOrange">Orange</span>
+
+        <span class="belt" data-i18n="beltBlue">Blue</span>
+
+        <span class="belt" data-i18n="beltGreen">Green</span>
+
+        <span class="belt" data-i18n="beltBrown">Brown</span>
+
+        <span class="belt" data-i18n="beltBlack">Black · Dan Grades</span>
+
+      </div>
+
+    </section>
+
+    <!-- Related images and videos -->
+
+    <section class="content-section">
+
+      <h2 data-i18n="kyokushinMediaTitle">Kyokushin in Action</h2>
+
+      <p data-i18n="kyokushinMediaText">
+
+        Photographs and videos of training, demonstrations and
+
+        competitions can be presented here.
+
+      </p>
+
+      <p data-i18n="kyokushinMediaNote">
+
+        Media will be added after suitable images and video links
+
+        have been selected.
+
+      </p>
+
+      <p>
+
+        <a href="gallery.html" data-i18n="kyokushinGalleryLink">
+
+          Explore the Gallery →
+
+        </a>
+
+      </p>
+
+    </section>
+
+    <!-- Introduction to the dojo -->
+
+    <section class="content-section">
+
+      <h2 data-i18n="kyokushinDojoTitle">Kyokushin at Our Dojo</h2>
+
+      <p data-i18n="kyokushinDojoText">
+
+        Our dojo aims to provide a respectful training environment
+
+        where students can improve their fitness, technique,
+
+        confidence and martial arts knowledge.
+
+      </p>
+
+      <p data-i18n="kyokushinDojoNote">
+
+        Information about instructors, classes and training schedules
+
+        is available on the relevant pages of this website.
+
+      </p>
+
+      <p>
+
+        <a href="academy.html" data-i18n="kyokushinAcademyLink">View Academy Information →</a>
+
+      </p>
+
+    </section>
+
+  </main>
+
+  <!-- Website footer -->
+
+  <footer data-i18n="footerText">
+
+    MARTIAL ARTS · STRENGTH · DISCIPLINE
+
+  </footer>
+
+  <!-- Load the shared translation file -->
+
+  <script src="js/translations.js"></script>
+
+</body>
+
+</html>
