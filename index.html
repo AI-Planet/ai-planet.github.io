@@ -192,28 +192,19 @@
 
       overflow: hidden;
 
-      /* Background image with a dark overlay to improve text readability */
+  /* Background image with a dark overlay to improve text readability */
+  background:
+  linear-gradient(
+    90deg,
+    rgba(8, 8, 8, 1) 0%,
+    rgba(8, 8, 8, 0.92) 40%,
+    rgba(8, 8, 8, 0.25) 100%
+  ),
+  url("images/kyokushin/Kyokushin Sunset Warrior Poster.png");
 
-      background:
-
-        linear-gradient(
-
-          90deg,
-
-          rgba(8, 8, 8, 1) 0%,
-
-          rgba(8, 8, 8, 0.92) 40%,
-
-          rgba(8, 8, 8, 0.25) 100%
-
-        ),
-
-        url("images/kyokushin/Kyokushin Sunset Warrior Poster.png")
-        no-repeat;
-        background-size: cover;
-        background-position: 100% 35%;
-
-    }
+  background-size: cover, cover;
+  background-position: center, 100% 35%;
+  background-repeat: no-repeat, no-repeat;
 
     .content {
 
